@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> custom directives </title>
+</head>
+<body>
+<div ng-app="app">
+    <div ng-controller="EmployeeController">
+        <employee name="Manu"></employee>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script type="text/javascript">
+	angular.module('app', [])
+
+.controller('EmployeeController', function ($scope) {
+
+})
+
+.directive('employee', function () {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: {
+            name: '@name'
+        },
+        template: '<span>Hello {{name}} welcome to the world of AngularJS</span>'
+    }
+});
+</script>
+</body>
+</html>
